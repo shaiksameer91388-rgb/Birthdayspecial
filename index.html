@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+/*body{overflow:hidden;background:#f7f3e8}*/
+
+
+body{
+  overflow-x:hidden;
+  overflow-y:auto;
+  background:#f7f3e8;
+}
+
+.screen{position:absolute;width:100%;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;transition:1s;background-size:cover;background-position:center}
+
+.screen::before{content:"";position:absolute;width:100%;height:100%;backdrop-filter:blur(8px);background:rgba(0,0,0,0.2);z-index:0}
+.screen>*{z-index:1}
+
+.hidden{opacity:0;pointer-events:none;transform:scale(1.1)}
+
+#screen2{
+  overflow-y:auto;
+  padding-bottom:40px;
+}
+
+.letterBox{
+  display:none;
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  max-width:500px;
+  margin-top:20px;
+}
+
+#screen2 button{
+  margin-top:15px;
+}
+
+/* ✨ glowing text */
+.glow{
+color:#fff;
+animation:glowAnim 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowAnim{
+0%{text-shadow:0 0 5px #fff,0 0 10px #ff6b81,0 0 20px #ff6b81}
+100%{text-shadow:0 0 20px #fff,0 0 30px #ff4d6d,0 0 40px #ff4d6d}
+}
+
+h1{font-family:'Great Vibes',cursive;font-size:3rem}
+p{margin-top:10px;color:#eee}
+
+button{margin-top:20px;padding:12px 25px;border:none;border-radius:25px;background:#ff6b81;color:#fff;cursor:pointer}
+
+.typing{border-right:3px solid #fff;white-space:nowrap;overflow:hidden}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px;width:100%;max-width:900px;margin-top:20px}
+.card{position:relative;border-radius:15px;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;transition:0.6s}
+.card:hover img{transform:scale(1.2)}
+
+.overlay{
+position:absolute;
+bottom:10px;
+width:100%;
+color:white;
+padding:10px;
+text-align:center;
+opacity:0;
+transition:0.3s;
+text-shadow:0 0 10px rgba(0,0,0,0.7);
+}
+.card:hover .overlay{opacity:1}
+
+.letterBox{display:none;background:white;padding:20px;border-radius:20px;max-width:500px;margin-top:20px}
+
+.chatBox{width:100%;max-width:400px;background:rgba(255,255,255,0.9);border-radius:20px;padding:15px;margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.msg{padding:10px 15px;border-radius:15px;max-width:75%;font-size:14px}
+.left{background:#eee;align-self:flex-start}
+.right{background:#ff6b81;color:white;align-self:flex-end}
+
+.zoom{animation:zoomEffect 10s ease-in-out infinite alternate}
+@keyframes zoomEffect{0%{transform:scale(1)}100%{transform:scale(1.1)}}
+
+.firework{position:absolute;width:6px;height:6px;background:yellow;border-radius:50%;animation:explode 1s ease-out forwards}
+@keyframes explode{0%{transform:scale(1);opacity:1}100%{transform:scale(20);opacity:0}}
+
+.heart{position:absolute;color:#ff4d6d;animation:float 6s linear infinite}
+@keyframes float{0%{transform:translateY(100vh)}100%{transform:translateY(-10vh)}}
+
+
+@media(max-width:600px){
+
+h1{
+  font-size:2rem;
+}
+
+p{
+  font-size:14px;
+}
+
+button{
+  padding:10px 18px;
+  font-size:14px;
+}
+
+.gallery{
+  grid-template-columns:repeat(2,1fr);
+}
+
+.chatBox{
+  max-width:90%;
+}
+
+.msg{
+  font-size:13px;
+}
+
+}
+</style>
+</head>
+<body>
+
+<!-- SCREEN 1 -->
+<div class="screen zoom" id="screen1" style="background-image:url('https://picsum.photos/800?1')">
+<h1 class="typing glow" id="typingText"></h1>
+<p>Today is all about celebrating you 💖</p>
+<button onclick="next(2)">Start 🎉</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen hidden zoom" id="screen2" style="background-image:url('https://picsum.photos/800?2')">
+<h1 class="glow">Our Memories 📸</h1>
+
+<div class="gallery">
+<div class="card"><img src="images/1.jpg"><div class="overlay">You're my favorite place ❤️</div></div>
+<div class="card"><img src="images/2.jpg"><div class="overlay">My happiness 💕</div></div>
+<div class="card"><img src="images/3.jpg"><div class="overlay">Forever us 💖</div></div>
+<div class="card"><img src="images/4.jpg"><div class="overlay">My peace 🫶</div></div>
+<div class="card"><img src="images/1.jpg"><div class="overlay">You're my favorite place ❤️</div></div>
+<div class="card"><img src="images/2.jpg"><div class="overlay">My happiness 💕</div></div>
+<div class="card"><img src="images/3.jpg"><div class="overlay">Forever us 💖</div></div>
+<div class="card"><img src="images/4.jpg"><div class="overlay">My peace 🫶</div></div>
+<div class="card"><img src="images/1.jpg"><div class="overlay">You're my favorite place ❤️</div></div>
+<div class="card"><img src="images/2.jpg"><div class="overlay">My happiness 💕</div></div>
+</div>
+
+
+<button onclick="showLetter()">Open Love Letter 💌</button>
+
+<div class="letterBox" id="letter">
+  <p>Every moment with you is special. I love you endlessly ❤️</p>
+</div>
+
+<button id="nextBtn" onclick="next(3)" style="display:none;">Next ➡</button>
+
+</div> <!-- ✅ YE CLOSE KARNA ZAROORI HAI -->
+
+<!--<button onclick="showLetter()">Open Love Letter 💌</button>
+<div class="letterBox" id="letter"><p>Every moment with you is special. I love you endlessly ❤️</p></div>
+
+</div>
+<button id="nextBtn" onclick="next(3)" style="display:none;">Next ➡</button>-->
+
+<!-- SCREEN 3 -->
+<div class="screen hidden zoom" id="screen3" style="background-image:url('https://picsum.photos/800?3')">
+<h1 class="glow">Our Story 💬</h1>
+<div class="chatBox" id="chat"></div>
+<button onclick="next(4)">Final ❤️</button>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen hidden zoom" id="screen4" style="background-image:url('https://picsum.photos/800?4')">
+<h1 class="glow">Happy Birthday <span id="herName"></span> ❤️</h1>
+<p>You mean everything to me 💖</p>
+<button onclick="next(5)">Final Surprise 🎁</button>
+</div> 
+
+
+
+<!-- SCREEN 5 -->
+<div class="screen hidden zoom" id="screen5" style="background:linear-gradient(135deg,#ff6b81,#ff9a9e);">
+
+<h1 class="glow">One Last Thing... 💖</h1>
+
+<p style="margin-top:20px;font-size:18px;">
+  No matter what happens...  
+  I just want you to know 🥺
+</p>
+
+<button onclick="showFinalLove()">Click Me ❤️</button>
+
+<h1 id="finalLoveText" style="margin-top:30px; display:none; font-size:3rem;">
+  I LOVE YOU ❤️
+</h1>
+
+<p id="finalLine" style="display:none; margin-top:15px;">
+  Forever & Always 💞
+</p>
+
+</div>  
+
+<audio id="music" src="music/dooron_dooron.mp3"></audio>
+
+<script>
+function next(n){document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));document.getElementById('screen'+n).classList.remove('hidden');/*document.getElementById('music').play();*/const music = document.getElementById('music');
+music.play().catch(()=>{});if(n===3)startChat();if(n===4)startFireworks();}
+
+const name="Her Name";document.getElementById('herName').innerText=name;
+
+const text=`Happy Birthday ${name} ❤️`;
+let i=0;function type(){if(i<text.length){document.getElementById('typingText').innerHTML+=text.charAt(i);i++;setTimeout(type,100);}}type();
+
+function showLetter(){
+  document.getElementById('letter').style.display='block';
+  document.getElementById('nextBtn').style.display='inline-block';
+}
+const messages=["Hey ❤️","Do you know how special today is?","It's your birthday 🎂","I love you so much 💖","Forever yours ❤️"];
+let idx=0;
+function startChat(){const chat=document.getElementById('chat');chat.innerHTML='';idx=0;sendMsg();}
+function sendMsg(){if(idx>=messages.length)return;let div=document.createElement('div');div.className='msg '+(idx%2==0?'left':'right');div.innerText=messages[idx];document.getElementById('chat').appendChild(div);idx++;setTimeout(sendMsg,1000);}
+
+function startFireworks(){setInterval(()=>{let fw=document.createElement('div');fw.className='firework';fw.style.left=Math.random()*100+'vw';fw.style.top=Math.random()*100+'vh';document.body.appendChild(fw);setTimeout(()=>fw.remove(),1000);},300);}
+
+setInterval(()=>{let h=document.createElement('div');h.className='heart';h.innerHTML='❤';h.style.left=Math.random()*100+'vw';document.body.appendChild(h);setTimeout(()=>h.remove(),6000);},300);
+function showFinalLove(){
+  document.getElementById('finalLoveText').style.display='block';
+  document.getElementById('finalLine').style.display='block';
+}
+
+</script>
+
+</body>
+</html>
